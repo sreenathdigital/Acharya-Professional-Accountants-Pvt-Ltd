@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router';
 import React, { Suspense } from 'react';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
@@ -36,9 +36,13 @@ import CareersPage from './components/pages/CareersPage';
 import InternshipPage from './components/pages/InternshipPage';
 import ContactPage from './components/pages/ContactPage';
 import TaxCalculatorPage from './components/pages/TaxCalculatorPage';
+import FinanceCareerThudangamPage from './components/pages/FinanceCareerThudangamPage';
 import DynamicPageHandler from './components/pages/DynamicPageHandler';
 
 export function AppContent() {
+  const location = useLocation();
+  const isStandaloneLanding = location.pathname.includes('thudangam');
+
   return (
     <div className="font-inter text-white bg-dark-bg min-h-screen relative overflow-hidden">
       {/* Global Background Aura (Radial & Triangle Glow) Effect */}
@@ -59,52 +63,52 @@ export function AppContent() {
           viewBox="0 0 100 100"
         >
           <defs>
-            <radialGradient id="global-tri-grad-1" cx="50%" cy="60%" r="50%">
-              <stop offset="0%" stopColor="#e5a145" stopOpacity="1.0" />
-              <stop offset="100%" stopColor="#e5a145" stopOpacity="0" />
-            </radialGradient>
-            <filter id="global-triangle-blur-1" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="20" />
+            <linearGradient id="global-tri-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="rgba(229,161,69,0.35)" />
+              <stop offset="100%" stopColor="rgba(142,64,14,0)" />
+            </linearGradient>
+            <filter id="global-triangle-blur-1" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6" />
             </filter>
           </defs>
           <polygon points="50,15 90,85 10,85" fill="url(#global-tri-grad-1)" filter="url(#global-triangle-blur-1)" />
         </svg>
 
         {/* Glow 3 - Middle Left */}
-        <div className="absolute top-[45%] left-[-10%] w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] rounded-full bg-[radial-gradient(circle,rgba(94,59,40,0.30)_0%,rgba(94,59,40,0)_70%)] filter blur-[100px] animate-glow-3" />
+        <div className="absolute top-[45%] left-[-20%] w-[85vw] h-[85vw] max-w-[950px] max-h-[950px] rounded-full bg-[radial-gradient(circle,rgba(229,161,69,0.20)_0%,rgba(229,161,69,0)_70%)] filter blur-[100px] animate-glow-1" />
 
         {/* Triangle Glow 2 - Middle Left */}
         <svg 
-          className="absolute top-[50%] left-[-8%] w-[55vw] h-[55vw] max-w-[700px] max-h-[700px] pointer-events-none select-none opacity-30 animate-glow-3" 
+          className="absolute top-[48%] left-[-8%] w-[55vw] h-[55vw] max-w-[700px] max-h-[700px] pointer-events-none select-none opacity-20 animate-glow-1" 
           viewBox="0 0 100 100"
         >
           <defs>
-            <radialGradient id="global-tri-grad-2" cx="50%" cy="40%" r="50%">
-              <stop offset="0%" stopColor="#8e400e" stopOpacity="1.0" />
-              <stop offset="100%" stopColor="#8e400e" stopOpacity="0" />
-            </radialGradient>
-            <filter id="global-triangle-blur-2" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="22" />
+            <linearGradient id="global-tri-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="rgba(142,64,14,0.35)" />
+              <stop offset="100%" stopColor="rgba(229,161,69,0)" />
+            </linearGradient>
+            <filter id="global-triangle-blur-2" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="8" />
             </filter>
           </defs>
-          <polygon points="50,85 10,15 90,15" fill="url(#global-tri-grad-2)" filter="url(#global-triangle-blur-2)" />
+          <polygon points="50,10 95,85 5,85" fill="url(#global-tri-grad-2)" filter="url(#global-triangle-blur-2)" />
         </svg>
 
-        {/* Glow 4 - Lower Right */}
-        <div className="absolute top-[68%] right-[-10%] w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] rounded-full bg-[radial-gradient(circle,rgba(229,161,69,0.21)_0%,rgba(229,161,69,0)_70%)] filter blur-[90px] animate-glow-1" />
+        {/* Glow 4 - Middle Right */}
+        <div className="absolute top-[65%] right-[-18%] w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] rounded-full bg-[radial-gradient(circle,rgba(229,161,69,0.22)_0%,rgba(229,161,69,0)_70%)] filter blur-[110px] animate-glow-2" />
 
-        {/* Triangle Glow 3 - Lower Center/Right */}
+        {/* Triangle Glow 3 - Lower Middle */}
         <svg 
-          className="absolute top-[75%] right-[8%] w-[45vw] h-[45vw] max-w-[600px] max-h-[600px] pointer-events-none select-none opacity-22 animate-glow-1" 
+          className="absolute top-[70%] left-[25%] w-[45vw] h-[45vw] max-w-[600px] max-h-[600px] pointer-events-none select-none opacity-15 animate-glow-1" 
           viewBox="0 0 100 100"
         >
           <defs>
-            <radialGradient id="global-tri-grad-3" cx="50%" cy="55%" r="50%">
-              <stop offset="0%" stopColor="#5e3b28" stopOpacity="1.0" />
-              <stop offset="100%" stopColor="#5e3b28" stopOpacity="0" />
-            </radialGradient>
-            <filter id="global-triangle-blur-3" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="18" />
+            <linearGradient id="global-tri-grad-3" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="rgba(229,161,69,0.30)" />
+              <stop offset="100%" stopColor="rgba(142,64,14,0)" />
+            </linearGradient>
+            <filter id="global-triangle-blur-3" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="7" />
             </filter>
           </defs>
           <polygon points="50,15 95,80 5,80" fill="url(#global-tri-grad-3)" filter="url(#global-triangle-blur-3)" />
@@ -117,7 +121,7 @@ export function AppContent() {
       {/* Content Layer */}
       <div className="relative z-10">
         <AnalyticsTracker />
-        <Header />
+        {!isStandaloneLanding && <Header />}
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -153,13 +157,15 @@ export function AppContent() {
             <Route path="/Internship" element={<InternshipPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/calculator" element={<TaxCalculatorPage />} />
+            <Route path="/finance-career-thudangam" element={<FinanceCareerThudangamPage />} />
+            <Route path="/thudangam" element={<FinanceCareerThudangamPage />} />
 
             {/* Location Based Pages - Dynamic Handler for partial matching */}
             <Route path="/:slug" element={<DynamicPageHandler />} />
           </Routes>
         </Suspense>
-        <Footer />
-        <ScrollToTop />
+        {!isStandaloneLanding && <Footer />}
+        {!isStandaloneLanding && <ScrollToTop />}
       </div>
     </div>
   );

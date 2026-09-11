@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4-Month Finance Career Thudangam | Acharya Professional Accountants</title>
+  <meta name="description"
+    content="4-Month Finance Career Thudangam — Practical training from professionals working inside a real Auditing & Taxation firm in Kozhikode for freshers & career-gap students.">
+  <link rel="icon" type="image/webp" href="/images/logo_dark.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #040404;
+      --bg-alt: #0b0b0b;
+      --surface: #1c1c1b;
+      --surface-card: rgba(28, 28, 27, 0.95);
+      --gold: #e5a145;
+      --gold-soft: #ffdca8;
+      --korma: #8e400e;
+      --text: #ffffff;
+      --muted: #7c7c7b;
+      --muted-soft: #555555;
+      --border: rgba(229, 161, 69, 0.25);
+      --font-display: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-dark);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1,
+    h2,
+    h3,
+    .brandfont {
+      font-family: var(--font-display);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ANIMATED LIGHT BACKGROUND EFFECT */
+    .bg-light-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .light-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(110px);
+      pointer-events: none;
+    }
+
+    .orb-1 {
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(229, 161, 69, 0.22) 0%, rgba(229, 161, 69, 0) 70%);
+      top: -150px;
+      left: -120px;
+      animation: orbFloat1 22s ease-in-out infinite alternate;
+    }
+
+    .orb-2 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(142, 64, 14, 0.28) 0%, rgba(142, 64, 14, 0) 70%);
+      top: 35%;
+      right: -150px;
+      animation: orbFloat2 26s ease-in-out infinite alternate;
+    }
+
+    .orb-3 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(229, 161, 69, 0.18) 0%, rgba(229, 161, 69, 0) 70%);
+      bottom: -100px;
+      left: -100px;
+      animation: orbFloat1 28s ease-in-out infinite alternate;
+    }
+
+    .light-ray-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(125deg, transparent 35%, rgba(229, 161, 69, 0.04) 50%, transparent 65%);
+      background-size: 250% 250%;
+      animation: lightRaySweep 16s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes orbFloat1 {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+      }
+
+      50% {
+        transform: translate(70px, 90px) scale(1.15);
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: translate(-50px, 130px) scale(0.92);
+        opacity: 0.6;
+      }
+    }
+
+    @keyframes orbFloat2 {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: translate(-90px, -70px) scale(1.22);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(50px, -110px) scale(0.95);
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes lightRaySweep {
+      0% {
+        background-position: 250% 0;
+      }
+
+      100% {
+        background-position: -250% 0;
+      }
+    }
+
+    /* NAV */
+    .nav {
+      background: var(--surface);
+      border-bottom: 2px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px;
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 19px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand span {
+      color: var(--gold);
+    }
+
+    .brand-logo-img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14.5px;
+      color: #e5e7eb;
+      font-weight: 500;
+      font-family: var(--font-display);
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: #040404;
+      font-family: var(--font-display);
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(229, 161, 69, 0.35);
+    }
+
+    /* HERO */
+    .hero {
+      background: radial-gradient(circle at 85% 20%, rgba(229, 161, 69, 0.15), transparent 45%), linear-gradient(160deg, var(--bg-dark) 0%, var(--bg-alt) 55%, var(--surface) 100%);
+      color: var(--text);
+      padding: 64px 0 56px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(229, 161, 69, 0.12);
+      border: 1px solid rgba(229, 161, 69, 0.4);
+      color: var(--gold-soft);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12.5px;
+      letter-spacing: 1.5px;
+      padding: 7px 16px;
+      border-radius: 30px;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 48px;
+      line-height: 1.12;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 .accent {
+      color: var(--gold);
+    }
+
+    .hero p.lead {
+      font-size: 18px;
+      color: #d1d5db;
+      max-width: 560px;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--korma) 100%);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 700;
+      padding: 15px 28px;
+      border-radius: 10px;
+      font-size: 15.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 18px rgba(229, 161, 69, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(229, 161, 69, 0.45);
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(229, 161, 69, 0.35);
+      color: var(--text);
+      font-family: var(--font-display);
+      font-weight: 600;
+      padding: 15px 26px;
+      border-radius: 10px;
+      font-size: 15.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(229, 161, 69, 0.05);
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta div {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .hero-meta b {
+      display: block;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .hero-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card .row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 22px;
+    }
+
+    .hero-card .row:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-card .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 40px;
+    }
+
+    .hero-card .row-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .hero-card .row-sub {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .quick-enroll-form {
+      margin-top: 24px;
+      background: rgba(4, 4, 4, 0.7);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .quick-enroll-form h4 {
+      font-family: var(--font-display);
+      font-size: 14px;
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .quick-enroll-form input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(229, 161, 69, 0.25);
+      background: var(--surface);
+      color: #fff;
+      font-size: 13.5px;
+      outline: none;
+    }
+
+    .quick-enroll-form input:focus {
+      border-color: var(--gold);
+    }
+
+    /* POSITIONING STRIP */
+    .strip {
+      background: var(--surface);
+      border-y: 1px solid var(--border);
+      padding: 22px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .strip .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .strip h2 {
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .strip p {
+      font-size: 14.5px;
+      color: var(--muted);
+    }
+
+    .strip p b {
+      color: var(--gold);
+    }
+
+    .highlight-band {
+      background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+      padding: 13px 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .highlight-band .wrap {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .highlight-band span {
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 14.5px;
+      color: #040404;
+    }
+
+    .highlight-band .dot {
+      opacity: 0.5;
+    }
+
+    /* MODULES */
+    .section {
+      padding: 68px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 44px auto;
+    }
+
+    .kicker {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .module {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .module:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+      box-shadow: 0 8px 24px rgba(229, 161, 69, 0.15);
+    }
+
+    .module .num {
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: var(--gold);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .module .micon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .module h3 {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .module p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* AUDIENCE / USP */
+    .audience-band {
+      background: var(--surface);
+      border-y: 1px solid var(--border);
+      padding: 44px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .audience-band .wrap {
+      text-align: center;
+    }
+
+    .audience-tags {
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--gold-soft);
+      font-size: 14.5px;
+      margin-bottom: 16px;
+    }
+
+    .audience-tags .sep {
+      color: var(--muted);
+      margin: 0 12px;
+    }
+
+    .usp-line {
+      color: var(--muted);
+      font-size: 16.5px;
+    }
+
+    .usp-line b {
+      color: var(--text);
+    }
+
+    /* WHY / CERTIFICATES */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .why-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .why-card .num-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--korma) 100%);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px auto;
+      box-shadow: 0 4px 12px rgba(229, 161, 69, 0.3);
+    }
+
+    .why-card h3 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* FINAL CTA */
+    .final-cta {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg-alt) 100%);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--text);
+      padding: 60px 0;
+      text-align: center;
+      margin: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .final-cta p {
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-size: 16.5px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta .btn-primary {
+      font-size: 17px;
+      padding: 17px 36px;
+    }
+
+    .seats-note {
+      margin-top: 16px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      color: var(--gold-soft);
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-dark);
+      border-t: 1px solid var(--border);
+      color: var(--muted);
+      padding: 48px 0 24px 0;
+      font-size: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer .wrap {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 32px;
+    }
+
+    footer h4 {
+      font-family: var(--font-display);
+      color: var(--text);
+      font-size: 15px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    footer .brand {
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+
+    footer .foot-links a {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    footer .foot-links a:hover {
+      color: var(--gold);
+    }
+
+    .foot-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--muted-soft);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width:960px) {
+      .hero .wrap {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .modules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer .wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width:600px) {
+      .modules-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p.lead {
+        font-size: 16px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .final-cta {
+        margin: 0 12px;
+      }
+    }
+
+    /* STICKY MOBILE ACTION BAR */
+    .sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 10px 16px;
+      z-index: 99;
+      gap: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .sticky-bar {
+        display: flex;
+      }
+
+      body {
+        padding-bottom: 60px;
+      }
+    }
+
+    .sticky-btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13.5px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .btn-call {
+      background: var(--surface-card);
+      color: #fff;
+      border: 1px solid var(--border);
+    }
+
+    .btn-wa {
+      background: #25D366;
+      color: #fff;
+      border: none;
+    }
+
+    /* MODAL REGISTRATION FORM WITH SPRING OPENING & SMOOTH EXIT ANIMATION */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-backdrop.closing {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+
+    .modal-card {
+      background: var(--surface);
+      border: 1px solid var(--gold);
+      border-radius: 18px;
+      max-width: 460px;
+      width: 100%;
+      padding: 32px;
+      color: var(--text);
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 161, 69, 0.25);
+      transform: scale(0.82) translateY(-28px);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+    }
+
+    .modal-backdrop.active .modal-card {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    .modal-backdrop.closing .modal-card {
+      transform: scale(0.88) translateY(24px);
+      opacity: 0;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 24px;
+      cursor: pointer;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .modal-close:hover {
+      color: #fff;
+      transform: scale(1.15);
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    .modal-sub {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .m-group {
+      margin-bottom: 14px;
+    }
+
+    .m-label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--gold-soft);
+      margin-bottom: 4px;
+    }
+
+    .m-input,
+    .m-select {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(229, 161, 69, 0.3);
+      background: var(--bg-dark);
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .m-input:focus,
+    .m-select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 10px rgba(229, 161, 69, 0.3);
+    }
+
+    .m-select option {
+      background: var(--surface);
+      color: #fff;
+    }
+
+    .m-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--korma) 100%);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15.5px;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .m-submit:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND LIGHT ANIMATION -->
+  <div class="bg-light-animation">
+    <div class="light-orb orb-1"></div>
+    <div class="light-orb orb-2"></div>
+    <div class="light-orb orb-3"></div>
+    <div class="light-ray-overlay"></div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="wrap">
+      <div class="brand">
+        <img src="/images/logo_dark.webp" alt="Acharya Logo" class="brand-logo-img">
+        ACHARYA <span>PROFESSIONAL ACCOUNTANTS</span>
+      </div>
+      <div class="nav-links">
+        <a href="#modules">Curriculum</a>
+        <a href="#why">Why This Program</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="nav-cta" onclick="openModal()">Enroll Now</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="badge">AN OPPORTUNITY TO TRAIN INSIDE AN AUDITING FIRM</div>
+        <h1>4 Months to Your Finance <span class="accent">Career Thudangam</span></h1>
+        <p class="lead">For freshers &amp; career-gap students — practical training from professionals working inside a
+          real Auditing &amp; Taxation firm in Kozhikode.</p>
+
+        <div class="hero-ctas">
+          <button class="btn-primary" onclick="openModal()">Enroll Now — Limited Seats</button>
+          <a class="btn-secondary" href="#modules">See the Curriculum</a>
+        </div>
+
+        <div class="hero-meta">
+          <div><b>4 Months</b>Practical Training</div>
+          <div><b>8 Modules</b>Job-Ready Skills</div>
+          <div><b>Kozhikode</b>Palace Road, Mankave</div>
+        </div>
+      </div>
+
+      <!-- Right Side Hero Card -->
+      <div class="hero-card">
+        <div class="row">
+          <div class="icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 19V9M11 19V4M18 19v-7" stroke="#e5a145" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div>
+            <div class="row-title">Live, hands-on training</div>
+            <div class="row-sub">Not a classroom lecture — real workflows from day one.</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" stroke="#e5a145" stroke-width="1.8" />
+              <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7" stroke="#e5a145" stroke-width="1.8" />
+            </svg>
+          </div>
+          <div>
+            <div class="row-title">Trained by working professionals</div>
+            <div class="row-sub">Learn directly from Acharya's audit &amp; taxation team.</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="#e5a145" stroke-width="1.8" />
+              <path d="M9 12l2 2 4-4" stroke="#e5a145" stroke-width="1.8" />
+            </svg>
+          </div>
+          <div>
+            <div class="row-title">Built for freshers &amp; career-gap students</div>
+            <div class="row-sub">No prior experience assumed — just commitment.</div>
+          </div>
+        </div>
+
+        <!-- Quick Lead Form Inline -->
+        <div class="quick-enroll-form">
+          <h4>⚡ Reserve Your Seat Today</h4>
+          <form onsubmit="handleQuickEnroll(event)" style="display:flex; flex-direction:column; gap:10px;">
+            <input type="text" id="qName" placeholder="Your Name *" required>
+            <input type="tel" id="qPhone" placeholder="WhatsApp Number *" required>
+            <button type="submit" class="btn-primary"
+              style="padding:11px; width:100%; justify-content:center; font-size:14px;">Submit &amp; Get
+              Counseling</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONING STRIP -->
+  <div class="strip">
+    <div class="wrap">
+      <div>
+        <h2>4-Month Practical Finance Career Program</h2>
+        <p>Training from professionals working in an <b>Auditing &amp; Taxation Firm</b></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-band">
+    <div class="wrap">
+      <span>4 MONTHS</span><span class="dot">•</span><span>PRACTICAL TRAINING</span><span
+        class="dot">•</span><span>JOB-READY SKILLS</span>
+    </div>
+  </div>
+
+  <!-- MODULES -->
+  <section class="section" id="modules">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">WHAT YOU'LL TRAIN ON</div>
+        <h2>8 Practical Training Modules</h2>
+        <p>Every module is built around real firm workflows, not textbook theory.</p>
+      </div>
+
+      <div class="modules-grid">
+        <!-- 01 -->
+        <div class="module">
+          <div class="num">01</div>
+          <div class="micon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="4" width="18" height="16" rx="2" stroke="#e5a145" stroke-width="1.8" />
+              <path d="M3 9h18M8 4v16" stroke="#e5a145" stroke-width="1.8" />
+            </svg>
+          </div>
+          <h3>Accounting &amp; Tally</h3>
+          <p>Practical Entries • Tally • GST Accounting • Bank Reconciliation</p>
+        </div>
+
+        <!-- 02 -->
+        <div class="module">
+          <div class="num">02</div>
+          <div class="micon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="#e5a145" stroke-width="1.8" />
+              <path d="M9 12l2 2 4-4" stroke="#e5a145" stroke-width="1.8" />
+            </svg>
+          </div>
+          <h3>GST Practical Compliance</h3>
+          <p>GSTR-1 • GSTR-3B • ITC • GST Reconciliation</p>
+        </div>
+
+        <!-- 03 -->
+        <div class="module">
+          <div class="num">03</div>
+          <div class="micon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M6 2h9l5 5v15H6z" stroke="#e5a145" stroke-width="1.8" />
+              <path d="M15 2v5h5" stroke="#e5a145" stroke-width="1.8" />
+              <path d="M9 13h6M9 17h6" stroke="#e5a145" stroke-width="1.8" />
+            </svg>
+          </div>
+          <h3>Income Tax</h3>
+          <p>TDS • Tax Computation • ITR • Practical Cases</p>
+        </div>
+
+        <!-- 04 -->
+        <div class="module">
+          <div class="num">04</div>
+          <div class="micon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="7" stroke="#e5a145" stroke-width="1.8" />
+              <path d="M20 20l-4.5-4.5" stroke="#e5a145" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Audit</h3>
+          <p>Vouching • Verification • Ledger Scrutiny • Working Papers</p>
+        </div>
+
+        <!-- 05 -->
+        <div class="module">
+          <div class="num">05</div>
+          <div class="micon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 19V9M11 19V4M18 19v-7" stroke="#e5a145" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Financial Reporting</h3>
+          <p>P&amp;L • Balance Sheet • Cash Flow • Ratio Analysis</p>
+        </div>
+
+        <!-- 06 -->
+        <div class="module">
+          <div class="num">06</div>
+          <div class="micon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="4" width="18" height="16" rx="2" stroke="#e5a145" stroke-width="1.8" />
+              <path d="M3 10h18M9 10v10" stroke="#e5a145" stroke-width="1.8" />
+            </svg>
+          </div>
+          <h3>Excel for Finance</h3>
+          <p>XLOOKUP/VLOOKUP • SUMIFS • IF • Reconciliation • Reporting</p>
+        </div>
+
+        <!-- 07 -->
+        <div class="module">
+          <div class="num">07</div>
+          <div class="micon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M3 17l6-6 4 4 8-8" stroke="#e5a145" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M15 7h6v6" stroke="#e5a145" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3>Finance Data Analysis</h3>
+          <p>Data Cleaning • Revenue &amp; Cost Analysis • Variance • Insights</p>
+        </div>
+
+        <!-- 08 -->
+        <div class="module">
+          <div class="num">08</div>
+          <div class="micon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" stroke="#e5a145" stroke-width="1.8" />
+              <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7" stroke="#e5a145" stroke-width="1.8" />
+            </svg>
+          </div>
+          <h3>Interview &amp; Career Prep</h3>
+          <p>Interview Questions • CV Prep • Mock Interview • Communication</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE / USP -->
+  <div class="audience-band">
+    <div class="wrap">
+      <div class="audience-tags">FRESHERS<span class="sep">|</span>CAREER GAP STUDENTS<span class="sep">|</span>COMMERCE
+        GRADUATES<span class="sep">|</span>JOB SEEKERS</div>
+      <div class="usp-line"><b>Learn from Professionals</b> • <b>Practical Exposure</b> • <b>Real-World Learning</b> •
+        <b>Job-Ready Skills</b></div>
+    </div>
+  </div>
+
+  <!-- WHY -->
+  <section class="section" id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">WHY THIS PROGRAM</div>
+        <h2>Training Inside a Working Audit &amp; Taxation Firm</h2>
+        <p>You're not learning from a coaching centre — you're training alongside professionals handling live client
+          work.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="num-badge">1</div>
+          <h3>Real Firm Environment</h3>
+          <p>Sessions run inside Acharya's own audit &amp; taxation office, not a generic classroom.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="num-badge">2</div>
+          <h3>Practical, Not Theoretical</h3>
+          <p>Every module is built around tasks accountants actually do — entries, filings, reconciliations, working
+            papers.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="num-badge">3</div>
+          <h3>Career-Ready Finish</h3>
+          <p>The program closes with interview prep, CV building, and mock interviews so you're ready to apply
+            immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="wrap">
+    <section class="final-cta">
+      <div class="wrap">
+        <h2>Seats Are Limited — Reserve Yours</h2>
+        <p>4 months of practical, job-ready finance training from Acharya Professional Accountants, Kozhikode.</p>
+        <button class="btn-primary" onclick="openModal()">Enroll Now on WhatsApp</button>
+        <div class="seats-note">LIMITED SEATS — ENROLL NOW</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact" style="margin-top: 60px;">
+    <div class="wrap">
+      <div>
+        <div class="brand">ACHARYA <span>PROFESSIONAL ACCOUNTANTS</span></div>
+        <p>Providing expert accounting solutions that drive business growth and ensure compliance since 2015.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>1st Floor, Palace Arcade, Palace Road,<br>Mankave, Kozhikode, Kerala 673007</p>
+        <p style="margin-top:8px;">
+          <a href="tel:+919562069434" style="color:var(--gold)">+91 95620 69434</a><br>
+          <a href="tel:+917025546914" style="color:var(--gold)">+91 70255 46914</a>
+        </p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <div class="foot-links">
+          <a href="/">Home</a>
+          <a href="/courses">Courses</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Acharya Professional Accountants Pvt Ltd. All Rights Reserved.</div>
+  </footer>
+
+  <!-- STICKY MOBILE ACTION BAR -->
+  <div class="sticky-bar">
+    <a href="tel:+919562069434" class="sticky-btn btn-call">Call Us</a>
+    <button onclick="openModal()" class="sticky-btn btn-wa">Enroll Now</button>
+  </div>
+
+  <!-- REGISTRATION MODAL POPUP WITH SMOOTH OPEN/CLOSE ANIMATION -->
+  <div class="modal-backdrop" id="enrollModal" onclick="if(event.target === this) closeModal()">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-title">Enroll in 4-Month Program</div>
+      <div class="modal-sub">Acharya Professional Accountants, Kozhikode</div>
+
+      <form onsubmit="handleModalSubmit(event)">
+        <div class="m-group">
+          <label class="m-label">Full Name *</label>
+          <input type="text" id="mName" class="m-input" placeholder="Your Name" required>
+        </div>
+
+        <div class="m-group">
+          <label class="m-label">WhatsApp / Mobile Number *</label>
+          <input type="tel" id="mPhone" class="m-input" placeholder="Mobile Number" required>
+        </div>
+
+        <div class="m-group">
+          <label class="m-label">Qualification / Status *</label>
+          <select id="mQual" class="m-select" required>
+            <option value="" disabled selected>Select status...</option>
+            <option value="Commerce Graduate (B.Com/M.Com)">Commerce Graduate (B.Com / M.Com)</option>
+            <option value="Non-Commerce Graduate">Non-Commerce Graduate</option>
+            <option value="Career Gap Student">Career Gap Student</option>
+            <option value="Job Seeker">Job Seeker</option>
+          </select>
+        </div>
+
+        <button type="submit" class="m-submit">Confirm &amp; Chat on WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      const modal = document.getElementById('enrollModal');
+      modal.classList.remove('closing');
+      modal.classList.add('active');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('enrollModal');
+      modal.classList.add('closing');
+      modal.classList.remove('active');
+      setTimeout(function () {
+        modal.classList.remove('closing');
+      }, 350);
+    }
+
+    // AUTO POPUP 4 SECONDS AFTER PAGE LOAD
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        openModal();
+      }, 4000);
+    });
+
+    function handleQuickEnroll(e) {
+      e.preventDefault();
+      const name = document.getElementById('qName').value.trim();
+      const phone = document.getElementById('qPhone').value.trim();
+      sendWhatsApp(name, phone, 'Quick Inquiry');
+    }
+
+    function handleModalSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('mName').value.trim();
+      const phone = document.getElementById('mPhone').value.trim();
+      const qual = document.getElementById('mQual').value;
+      sendWhatsApp(name, phone, qual);
+    }
+
+    function sendWhatsApp(name, phone, qual) {
+      const text = `Hi Acharya! I am interested in the *4-Month Finance Career Thudangam* program.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Qualification:* ${encodeURIComponent(qual)}`;
+      window.open(`https://wa.me/919562069434?text=${text}`, '_blank');
+      closeModal();
+    }
+  </script>
+
+</body>
+
+</html>

@@ -76,6 +76,7 @@ const jobListings = [
 const JobOpenings = () => {
   const [activeJob, setActiveJob] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [selectedJob, setSelectedJob] = useState('');
   const modalRef = useRef(null);
 
@@ -85,25 +86,17 @@ const JobOpenings = () => {
 
   const handleApplyClick = (jobTitle) => {
     setSelectedJob(jobTitle);
+    setIsClosing(false);
     setShowModal(true);
   };
 
-  const handleClickOutside = (event) => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
+  const closeModal = () => {
+    setIsClosing(true);
+    setTimeout(() => {
       setShowModal(false);
-    }
+      setIsClosing(false);
+    }, 300);
   };
-
-  useEffect(() => {
-    if (showModal) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [showModal]);
 
   return (
     <section id="job-openings" className="relative z-10 py-20 bg-graphite/40 backdrop-blur-md">
@@ -193,22 +186,24 @@ const JobOpenings = () => {
 
       {/* Application Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div
+          onClick={(e) => {
+            if (e.target === e.currentTarget) closeModal();
+          }}
+          className={`fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 ${
+            isClosing ? 'animate-modal-backdrop-out' : 'animate-modal-backdrop-in'
+          }`}
+        >
           <div
-            ref={modalRef}
-            className="bg-secondary-dark rounded-xl p-6 max-w-md w-full border border-primary-accent/20"
-            data-aos="zoom-in"
-            style={{
-              // Fallback styles in case AOS doesn't work
-              opacity: 1,
-              transform: 'scale(1)'
-            }}
+            className={`bg-secondary-dark rounded-2xl p-6 max-w-md w-full border border-primary-accent/30 shadow-2xl relative ${
+              isClosing ? 'animate-modal-card-out' : 'animate-modal-card-in'
+            }`}
           >
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-xl font-semibold text-primary-accent">Apply for {selectedJob}</h3>
               <button
-                onClick={() => setShowModal(false)}
-                className="text-boulder hover:text-white"
+                onClick={closeModal}
+                className="text-boulder hover:text-white transition-colors"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -228,7 +223,7 @@ const JobOpenings = () => {
             </div>
             <div className="flex justify-end">
               <button
-                onClick={() => setShowModal(false)}
+                onClick={closeModal}
                 className="px-6 py-2 rounded-full bg-primary-accent text-dark-bg font-medium hover:bg-korma transition-colors"
               >
                 Close

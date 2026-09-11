@@ -15,25 +15,35 @@ const SyllabusLeadForm = ({ isOpen, onClose }) => {
     handleDirectDownload,
   } = useLeadCapture();
 
+  const [isClosing, setIsClosing] = React.useState(false);
+
   if (!isOpen) return null;
 
-  // Handle closing when clicking on the backdrop
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget && !isSubmitting) {
+  const handleClose = () => {
+    if (isSubmitting) return;
+    setIsClosing(true);
+    setTimeout(() => {
       onClose();
-    }
+      setIsClosing(false);
+    }, 300);
   };
 
   return (
     <div
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[1000] flex items-center justify-center p-4 overflow-y-auto"
-      onClick={handleBackdropClick}
+      className={`fixed inset-0 bg-black/80 z-[1000] flex items-center justify-center p-4 overflow-y-auto ${
+        isClosing ? 'animate-modal-backdrop-out' : 'animate-modal-backdrop-in'
+      }`}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) handleClose();
+      }}
     >
-      <div className="relative bg-secondary-dark border border-white/10 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl p-6 md:p-8 transform transition-all">
+      <div className={`relative bg-secondary-dark border border-primary-accent/30 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl p-6 md:p-8 ${
+        isClosing ? 'animate-modal-card-out' : 'animate-modal-card-in'
+      }`}>
         {/* Close Button */}
         <button
           className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-200 disabled:opacity-50"
-          onClick={onClose}
+          onClick={handleClose}
           disabled={isSubmitting}
           aria-label="Close modal"
         >
@@ -71,7 +81,7 @@ const SyllabusLeadForm = ({ isOpen, onClose }) => {
               Thank you! Your syllabus download has started. Please check your downloads folder.
             </p>
             <button
-              onClick={onClose}
+              onClick={handleClose}
               className="w-full py-4 px-6 rounded-full bg-primary-accent text-dark-bg font-extrabold text-lg hover:bg-korma hover:text-white transition-all duration-300 shadow-lg shadow-primary-accent/20"
             >
               Close Window

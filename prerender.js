@@ -31,6 +31,8 @@ const routes = [
     '/careers',
     '/contact',
     '/calculator',
+    '/finance-career-thudangam',
+    '/thudangam',
 ];
 
 // Helper to extract top-level keys from JS/JSX data files

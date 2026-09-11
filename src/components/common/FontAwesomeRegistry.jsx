@@ -96,10 +96,20 @@ import {
     FaPaperPlane,
     FaEnvelope,
     FaCalendar,
-    FaComment
+    FaComment,
+    FaPercent,
+    FaLock,
+    FaFileExcel,
+    FaChartPie
 } from 'react-icons/fa';
 
 const iconMap = {
+    'fa-circle-check': FaCheckCircle,
+    'fa-percent': FaPercent,
+    'fa-lock': FaLock,
+    'fa-file-excel': FaFileExcel,
+    'fa-chart-pie': FaChartPie,
+    'fa-magnifying-glass-chart': FaSearchDollar,
     'fa-building': FaBuilding,
     'fa-user-tie': FaUserTie,
     'fa-handshake': FaHandshake,
