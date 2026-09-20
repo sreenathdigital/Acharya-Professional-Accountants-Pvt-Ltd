@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import SEO from '../common/SEO';
+import Breadcrumbs from '../common/Breadcrumbs';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import { locationGroups } from '../../data/locationData';
@@ -31,6 +32,47 @@ const WayanadPage = () => {
         "Bookkeeping Services Wayanad",
         "NRI Tax Filing Wayanad",
         "DPIIT Registration Wayanad"
+    ];
+
+    const pills = [
+        { text: "GST Filing", lit: true },
+        { text: "Income Tax", lit: true },
+        { text: "Company Registration", lit: true },
+        { text: "Statutory Audit", lit: false },
+        { text: "Bookkeeping", lit: false },
+        { text: "NRI Tax", lit: false },
+        { text: "Payroll & PF", lit: false },
+        { text: "Internal Audit", lit: false },
+        { text: "TDS Filing", lit: false },
+        { text: "MSME Registration", lit: false }
+    ];
+
+    const promises = [
+        {
+            icon: "🏛️",
+            title: "Senior CA on Every File",
+            desc: "All engagements are led and reviewed directly by ICAI-registered chartered accountants. No delegation to junior assistants."
+        },
+        {
+            icon: "📅",
+            title: "Zero Missed Deadlines",
+            desc: "We run a live compliance calendar for every client. Returns are filed with time to spare — zero penalty record."
+        },
+        {
+            icon: "🔒",
+            title: "Transparent Fixed Pricing",
+            desc: "No hourly bills or surprise year-end invoices. You know the exact compliance cost before our work starts."
+        },
+        {
+            icon: "💬",
+            title: "Direct Access to Your CA",
+            desc: "Talk to the person actually working on your file. Clear answers in plain Malayalam or English."
+        },
+        {
+            icon: "🌐",
+            title: "Full Digital & WhatsApp Workflow",
+            desc: "Send documents via WhatsApp or email. Remote convenience for businesses across Kalpetta, Sultan Bathery and Mananthavady."
+        }
     ];
 
     const services = [

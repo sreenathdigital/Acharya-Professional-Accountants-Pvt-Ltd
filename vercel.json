@@ -4,6 +4,16 @@
             "source": "/services/taxation/tax-audit",
             "destination": "/services/auditing/tax-audit",
             "permanent": true
+        },
+        {
+            "source": "/accounting-service-in-bengaluru",
+            "destination": "/accounting-service-in-bangalore",
+            "permanent": true
+        },
+        {
+            "source": "/accounting-service-in-mangalore",
+            "destination": "/accounting-service-in-mangaluru",
+            "permanent": true
         }
     ],
     "rewrites": [

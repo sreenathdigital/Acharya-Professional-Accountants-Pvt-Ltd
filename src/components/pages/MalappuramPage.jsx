@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import SEO from '../common/SEO';
+import Breadcrumbs from '../common/Breadcrumbs';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import { locationGroups } from '../../data/locationData';
@@ -241,8 +242,11 @@ const MalappuramPage = () => {
             <SEO
                 title="CA & Accounting Services in Malappuram | Acharya PA"
                 description="Acharya Professional Accountants offers GST filing, income tax, NRI taxation, audit & bookkeeping for businesses across Malappuram. Call for a free consultation."
-                canonical="https://www.acharyaprofessionalaccountants.in/accounting-service-in-malappuram"
+                canonical="https://acharyaprofessionalaccountants.in/accounting-service-in-malappuram"
             />
+            <div className="container mx-auto px-5 md:px-12 lg:px-20 pt-4">
+                <Breadcrumbs />
+            </div>
 
             {/* HERO SECTION */}
             <section className="container mx-auto px-5 md:px-12 lg:px-20 py-12 md:py-20 relative" data-aos="fade-up">

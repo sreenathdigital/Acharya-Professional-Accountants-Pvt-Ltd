@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
+import siteConfig from '../../config/siteConfig';
 
 const SEO = ({
     title,
@@ -9,16 +10,24 @@ const SEO = ({
     canonical,
     ogType = 'website',
     ogImage,
-    robots,
+    robots = 'index, follow',
     schema
 }) => {
     const location = useLocation();
-    const siteUrl = 'https://www.acharyaprofessionalaccountants.in';
+    const siteUrl = siteConfig.siteUrl;
 
     // Construct absolute URL for canonical if not provided or relative
-    const currentUrl = canonical
+    let currentUrl = canonical
         ? canonical
         : `${siteUrl}${location.pathname}`;
+
+    // Normalize canonical URL (ensure HTTPS and siteUrl prefix, strip trailing slashes except root)
+    if (currentUrl.startsWith('/')) {
+        currentUrl = `${siteUrl}${currentUrl}`;
+    }
+    if (currentUrl.endsWith('/') && currentUrl.length > siteUrl.length + 1) {
+        currentUrl = currentUrl.slice(0, -1);
+    }
 
     // Default fallback image
     const defaultImage = `${siteUrl}/images/Acharya-Professional-Accountants-OG-image.webp`;
@@ -28,7 +37,7 @@ const SEO = ({
 
     const fullTitle = title
         ? (title.includes('Acharya') ? title : `${title} | Acharya Professional Accountants`)
-        : 'Acharya Professional Accountants | CA & Tax Consultant in Calicut';
+        : 'Acharya Professional Accountants | CA Firm & Tax Consultant in Kozhikode';
 
     const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
     const scriptProps = schemaList.map(s => ({
@@ -42,11 +51,11 @@ const SEO = ({
             <title>{fullTitle}</title>
             <meta name="description" content={description} />
             {keywords && <meta name="keywords" content={keywords} />}
-            {robots && <meta name="robots" content={robots} />}
+            <meta name="robots" content={robots} />
             <link rel="canonical" href={currentUrl} />
 
             {/* Open Graph / Facebook */}
-            <meta property="og:site_name" content="Acharya Professional Accountants" />
+            <meta property="og:site_name" content={siteConfig.siteName} />
             <meta property="og:type" content={ogType} />
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={description} />
@@ -65,3 +74,4 @@ const SEO = ({
 };
 
 export default SEO;
+

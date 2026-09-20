@@ -235,10 +235,13 @@ const KannurPage = () => {
     return (
         <main className="font-inter text-white bg-dark-bg pt-24 md:pt-28 overflow-x-hidden">
             <SEO
-                title="CA Firm in Kannur | GST, Tax & Accounting — Acharya PA"
-                description="Acharya Professional Accountants — CA firm serving Kannur businesses with GST filing, income tax, audit, and accounting. ICAI registered. Book a free consultation."
-                canonical="https://www.acharyaprofessionalaccountants.in/accounting-service-in-kannur"
+                title="CA Firm in Kannur | Accounting & Tax Services — Acharya"
+                description="Acharya Professional Accountants provides CA, GST filing, handloom tax advisory, income tax, and audit support for businesses in Kannur from our Kozhikode office."
+                canonical="https://acharyaprofessionalaccountants.in/accounting-service-in-kannur"
             />
+            <div className="container mx-auto px-5 md:px-12 lg:px-20 pt-4">
+                <Breadcrumbs />
+            </div>
 
             {/* HERO SECTION */}
             <section className="container mx-auto px-5 md:px-12 lg:px-20 py-12 md:py-20 relative" data-aos="fade-up">
@@ -308,7 +311,7 @@ const KannurPage = () => {
                             </div>
                             <div>
                                 <span className="font-montserrat text-4xl md:text-5xl lg:text-6xl font-bold text-primary-accent block leading-none"><AnimatedCounter value={10} suffix="+" /></span>
-                                <span className="text-xs md:text-sm text-silver-sand font-medium uppercase tracking-wider block mt-3">Years in Kannur</span>
+                                <span className="text-xs md:text-sm text-silver-sand font-medium uppercase tracking-wider block mt-3">Years Experience</span>
                             </div>
                             <div>
                                 <span className="font-montserrat text-4xl md:text-5xl lg:text-6xl font-bold text-primary-accent block leading-none"><AnimatedCounter value={100} suffix="%" /></span>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import SEO from '../common/SEO';
+import Breadcrumbs from '../common/Breadcrumbs';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
@@ -24,6 +25,7 @@ const KozhikodePage = () => {
 
     const tickerItems = [
         "GST Filing Kozhikode",
+        "Chartered Accountant in Calicut",
         "Income Tax Consultant Kozhikode",
         "Company Registration Kozhikode",
         "ESOP Taxation Kozhikode",
@@ -37,9 +39,9 @@ const KozhikodePage = () => {
     const services = [
         {
             num: "01",
-            title: "GST Registration & Filing",
+            title: "GST Registration & Filing in Kozhikode",
             intro: (
-                <>We help with <Link to="/services/gst/registration-profile-management" className="text-primary-accent hover:underline">GST registration</Link>, regular returns, annual reconciliation, ITC checks and responses to GST notices.</>
+                <>We help with <Link to="/services/gst/registration-profile-management" className="text-primary-accent hover:underline">GST registration</Link>, regular returns, annual reconciliation, ITC checks and responses to GST notices for Calicut & Kozhikode businesses.</>
             ),
             tags: ["GST Registration", "GSTR-1", "GSTR-3B", "ITC Reconciliation"]
         },
@@ -47,24 +49,27 @@ const KozhikodePage = () => {
             num: "02",
             title: "Income Tax Filing & Planning",
             intro: (
-                <><a href="https://taxsummaries.pwc.com/india/individual/taxes-on-personal-income" target="_blank" rel="noopener noreferrer" className="text-primary-accent hover:underline">Income tax returns</a> for individuals, firms, companies and NRIs, along with <Link to="/services/taxation" className="text-primary-accent hover:underline">tax planning</Link> and support with department notices.</>
+                <><Link to="/services/taxation" className="text-primary-accent hover:underline">Income tax returns</Link> for individuals, firms, companies and NRIs, along with <Link to="/services/taxation/tax-planning" className="text-primary-accent hover:underline">tax planning</Link> and support with department notices.</>
             ),
             tags: ["ITR Filing", "Tax Planning", "TDS", "Notice Response"]
         },
         {
             num: "03",
-            title: "Accounting & Bookkeeping",
+            title: "Accounting & Bookkeeping Services",
             intro: (
-                <>Regular <a href="https://en.wikipedia.org/wiki/Bookkeeping" target="_blank" rel="noopener noreferrer" className="text-primary-accent hover:underline">bookkeeping</a>, ledger maintenance, bank reconciliation and financial reports that help you understand how your business is doing.</>
+                <>Regular <Link to="/services/accounting/bookkeeping" className="text-primary-accent hover:underline">bookkeeping</Link>, ledger maintenance, bank reconciliation and financial reports that help you understand how your business is doing.</>
             ),
             tags: ["Tally", "Zoho Books", "BRS", "MIS Reports"]
         },
         {
             num: "04",
-            title: "Audit & Assurance",
-            intro: "Statutory, tax and internal audits for companies, firms and other organisations that need reliable financial reporting and compliance.",
+            title: "Audit & Assurance Firm",
+            intro: (
+                <>Statutory, tax and <Link to="/services/auditing/internal-audit" className="text-primary-accent hover:underline">internal audits</Link> for companies, firms and other organisations that need reliable financial reporting and compliance.</>
+            ),
             tags: ["Statutory Audit", "Tax Audit", "Internal Audit"]
         },
+
         {
             num: "05",
             title: "Company Registration",
@@ -250,19 +255,14 @@ const KozhikodePage = () => {
     return (
         <main className="font-inter text-white bg-dark-bg pt-24 md:pt-28 overflow-x-hidden">
             <SEO
-                title="CA Firm & Accounting Services in Kozhikode | Acharya"
-                description="CA firm in Kozhikode with 500+ clients and a zero penalty record. GST, income tax, bookkeeping, audit, and NRI tax support. Get your free consultation now."
-                canonical="https://www.acharyaprofessionalaccountants.in/accounting-service-in-kozhikode"
+                title="CA Firm in Kozhikode | Chartered Accountants in Calicut | Acharya"
+                description="Acharya Professional Accountants is a leading CA firm in Kozhikode (Calicut) providing GST filing, income tax returns, bookkeeping, statutory audits, and NRI tax advisory."
+                canonical="https://acharyaprofessionalaccountants.in/accounting-service-in-kozhikode"
                 schema={[accountingServiceSchema, faqSchema]}
             />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(accountingServiceSchema) }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-            />
+            <div className="container mx-auto px-5 md:px-12 lg:px-20 pt-4">
+                <Breadcrumbs />
+            </div>
 
             {/* HERO SECTION */}
             <section className="container mx-auto px-5 md:px-12 lg:px-20 py-12 md:py-20 relative" data-aos="fade-up">

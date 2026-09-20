@@ -39,6 +39,26 @@ import TaxCalculatorPage from './components/pages/TaxCalculatorPage';
 import FinanceCareerThudangamPage from './components/pages/FinanceCareerThudangamPage';
 import DynamicPageHandler from './components/pages/DynamicPageHandler';
 
+// Subservice pages
+import WorkingCapitalPage from './components/pages/subservices/WorkingCapitalPage';
+import FinancialFeasibilityPage from './components/pages/subservices/FinancialFeasibilityPage';
+import ProfitabilityAnalysisPage from './components/pages/subservices/ProfitabilityAnalysisPage';
+
+// Resource and cluster pages
+import NriTaxHubPage from './components/pages/resources/NriTaxHubPage';
+import NriRentalIncomePage from './components/pages/resources/NriRentalIncomePage';
+import NriTdsPage from './components/pages/resources/NriTdsPage';
+import NriCapitalGainsPage from './components/pages/resources/NriCapitalGainsPage';
+import TaxNotice143_1Page from './components/pages/resources/TaxNotice143_1Page';
+import TaxNotice148Page from './components/pages/resources/TaxNotice148Page';
+import GstItcMismatchPage from './components/pages/resources/GstItcMismatchPage';
+import HandloomGstKannurPage from './components/pages/resources/HandloomGstKannurPage';
+import CmaDataPage from './components/pages/resources/CmaDataPage';
+import ProjectReportPage from './components/pages/resources/ProjectReportPage';
+import DscrGuidePage from './components/pages/resources/DscrGuidePage';
+import CgtmseLoanPage from './components/pages/resources/CgtmseLoanPage';
+import MudraLoanPage from './components/pages/resources/MudraLoanPage';
+
 export function AppContent() {
   const location = useLocation();
   const isStandaloneLanding = location.pathname.includes('thudangam');
@@ -145,10 +165,36 @@ export function AppContent() {
             <Route path="/services/gst" element={<ServiceGstPage />} />
             <Route path="/services/gst/:serviceId" element={<GSTServiceDetailPage />} />
             <Route path="/services/business-consulting" element={<ServiceBusinessConsultingPage />} />
+            {/* Business Consulting Subservices */}
+            <Route path="/services/business-consulting/working-capital" element={<WorkingCapitalPage />} />
+            <Route path="/services/business-consulting/financial-feasibility" element={<FinancialFeasibilityPage />} />
+            <Route path="/services/business-consulting/profitability-analysis" element={<ProfitabilityAnalysisPage />} />
+
             <Route path="/services/advisory" element={<ServiceAdvisoryPage />} />
             <Route path="/services/advisory/:serviceId" element={<MCAServiceDetailPage />} />
+
             <Route path="/services/business-loans" element={<LoanSupportPage />} />
             <Route path="/services/business-loans/:loanSlug" element={<LoanDetailPage />} />
+
+            {/* Bank Loan Cluster */}
+            <Route path="/services/business-loans/cma-data" element={<CmaDataPage />} />
+            <Route path="/services/business-loans/project-report" element={<ProjectReportPage />} />
+            <Route path="/services/business-loans/dscr" element={<DscrGuidePage />} />
+            <Route path="/services/business-loans/cgtmse" element={<CgtmseLoanPage />} />
+            <Route path="/services/business-loans/mudra" element={<MudraLoanPage />} />
+
+            {/* NRI Tax Hub & Guides */}
+            <Route path="/resources/nri-tax-hub" element={<NriTaxHubPage />} />
+            <Route path="/resources/nri-taxation/rental-income" element={<NriRentalIncomePage />} />
+            <Route path="/resources/nri-taxation/tds-certificate" element={<NriTdsPage />} />
+            <Route path="/resources/nri-taxation/capital-gains-property" element={<NriCapitalGainsPage />} />
+
+            {/* Tax Notice Guides */}
+            <Route path="/resources/tax-notices/notice-143-1" element={<TaxNotice143_1Page />} />
+            <Route path="/resources/tax-notices/notice-148" element={<TaxNotice148Page />} />
+            <Route path="/resources/tax-notices/gst-itc-mismatch" element={<GstItcMismatchPage />} />
+            <Route path="/resources/tax-notices/handloom-gst-kannur" element={<HandloomGstKannurPage />} />
+
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/globalpro" element={<Navigate to="/courses" replace />} />
             <Route path="/courses/c-pro" element={<Navigate to="/courses" replace />} />

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import DynamicFaIcon from '../common/FontAwesomeRegistry';
+import siteConfig from '../../config/siteConfig';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -111,8 +112,8 @@ const Contact = () => {
                 <div>
                   <h4 className="text-white text-lg mb-1">Our Office</h4>
                   <p className="text-boulder">
-                    1st Floor Palace Arcade,<br /> Palace Road, Mankave,<br /> Kozhikode,
-                    Kerala 673007<br />
+                    {siteConfig.address.street},<br />
+                    {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.pincode}
                   </p>
                 </div>
               </div>
@@ -124,9 +125,11 @@ const Contact = () => {
                 <div>
                   <h4 className="text-white text-lg mb-1">Phone</h4>
                   <p className="text-boulder">
-                    <a href="tel:+9195620694348" className="hover:text-primary-accent transition-colors duration-300">+91 9562 06 9434</a><br />
-                    <a href="tel:+919876543210" className="hover:text-primary-accent transition-colors duration-300">+91 7025 54 6914</a><br />
-                    <a href="tel:+919072118877" className="hover:text-primary-accent transition-colors duration-300">+91 9072 11 8877</a>
+                    {siteConfig.phones.map((phone, idx) => (
+                      <span key={idx} className="block">
+                        <a href={`tel:${phone.value}`} className="hover:text-primary-accent transition-colors duration-300">{phone.display}</a>
+                      </span>
+                    ))}
                   </p>
                 </div>
               </div>
@@ -138,8 +141,11 @@ const Contact = () => {
                 <div>
                   <h4 className="text-white text-lg mb-1">Email</h4>
                   <p className="text-boulder">
-                    <a href="mailto:acharya.apa@gmail.com" className="hover:text-primary-accent transition-colors duration-300">acharya.apa@gmail.com</a><br />
-                    <a href="mailto:apa@acharya-professional-accountants.in" className="hover:text-primary-accent transition-colors duration-300">apa@acharya-professional-accountants.in</a>
+                    {siteConfig.emails.map((email, idx) => (
+                      <span key={idx} className="block">
+                        <a href={`mailto:${email}`} className="hover:text-primary-accent transition-colors duration-300">{email}</a>
+                      </span>
+                    ))}
                   </p>
                 </div>
               </div>
@@ -151,11 +157,12 @@ const Contact = () => {
                 <div>
                   <h4 className="text-white text-lg mb-1">Working Hours</h4>
                   <p className="text-boulder">
-                    Monday - Saturday: 9:00 AM - 6:00 PM<br />
+                    {siteConfig.businessHours}
                   </p>
                 </div>
               </div>
             </div>
+
 
             <div>
               <h3 className="text-white text-xl mb-5">Connect With Us</h3>

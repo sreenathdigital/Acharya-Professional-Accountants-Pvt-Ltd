@@ -50,11 +50,9 @@ export const navbarServices = [
         title: "Business Consulting",
         link: "/services/business-consulting",
         items: [
-            { name: "Business Model Review", link: "/services/business-consulting" },
-            { name: "Profitability Analysis", link: "/services/business-consulting" },
-            { name: "Working Capital", link: "/services/business-consulting" },
-            { name: "Budgeting", link: "/services/business-consulting" },
-            { name: "Financial Feasibility", link: "/services/business-consulting" }
+            { name: "Working Capital Management", link: "/services/business-consulting/working-capital" },
+            { name: "Financial Feasibility Studies", link: "/services/business-consulting/financial-feasibility" },
+            { name: "Profitability Analysis", link: "/services/business-consulting/profitability-analysis" }
         ]
     },
     {

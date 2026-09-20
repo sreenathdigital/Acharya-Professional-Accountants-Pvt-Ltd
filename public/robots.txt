@@ -5,4 +5,4 @@
 User-agent: *
 Disallow: /*utm_
 
-Sitemap: https://www.acharyaprofessionalaccountants.in/sitemap.xml
+Sitemap: https://acharyaprofessionalaccountants.in/sitemap.xml

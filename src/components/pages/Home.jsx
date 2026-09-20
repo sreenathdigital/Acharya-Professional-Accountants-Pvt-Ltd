@@ -6,6 +6,7 @@ import Hero from '../sections/Hero';
 import About from '../sections/About';
 import Services from '../sections/Services';
 import TopCities from '../sections/TopCities';
+import AreasWeServeSection from '../sections/AreasWeServeSection';
 import TaxCalculatorTeaser from '../sections/TaxCalculatorTeaser';
 import CoursesTeaser from '../sections/CoursesTeaser';
 import CareersTeaser from '../sections/CareersTeaser';
@@ -26,15 +27,16 @@ const Home = () => {
   return (
     <main>
       <SEO
-        title="Acharya Accountants | CA, Tax, GST & Audit Services in India"
-        description="Acharya Professional Accountants offers expert CA services, tax planning, GST filing, and audits across India, plus 100% practical accounting courses."
-        canonical="https://www.acharyaprofessionalaccountants.in/"
+        title="Acharya Accountants | CA, Tax, GST & Audit Services in Kerala"
+        description="Acharya Professional Accountants offers expert CA services, tax planning, GST filing, statutory audits, and business advisory across Kozhikode, Kannur, Malappuram, Wayanad, Kasaragod & Bangalore."
+        canonical="https://acharyaprofessionalaccountants.in/"
       />
 
       <Hero />
       <About />
       <Services />
       <TopCities />
+      <AreasWeServeSection />
       <TaxCalculatorTeaser />
       <CoursesTeaser />
       <CareersTeaser />
@@ -47,3 +49,4 @@ const Home = () => {
 };
 
 export default Home;
+

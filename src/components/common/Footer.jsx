@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import siteConfig from '../../config/siteConfig';
 import { locationGroups } from '../../data/locationData';
 import {
   IconChevronRight,
@@ -15,6 +16,7 @@ import {
 
 const Footer = () => {
   const location = useLocation();
+  const currentYear = new Date().getFullYear();
   const [isSubscribed, setIsSubscribed] = useState(false);
 
   const handleSubscribe = (e) => {
@@ -68,13 +70,13 @@ const Footer = () => {
                 height="128"
               />
               <p className="text-boulder">
-                Providing expert accounting solutions that drive business growth and ensure compliance since 2015.
+                Providing expert accounting solutions that drive business growth and ensure compliance since {siteConfig.foundingYear}.
               </p>
             </div>
 
             <div className="flex gap-4">
               <a
-                href="https://www.linkedin.com/company/acharyaprofessionalaccountants/posts/?feedView=all"
+                href={siteConfig.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-dark-bg rounded-full flex items-center justify-center text-primary-accent hover:bg-primary-accent hover:text-dark-bg hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-accent/30 transition-all duration-300"
@@ -83,7 +85,7 @@ const Footer = () => {
                 <IconLinkedIn className="w-5 h-5" />
               </a>
               <a
-                href="https://www.facebook.com/APAinCLT"
+                href={siteConfig.socialLinks.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-dark-bg rounded-full flex items-center justify-center text-primary-accent hover:bg-primary-accent hover:text-dark-bg hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-accent/30 transition-all duration-300"
@@ -92,7 +94,7 @@ const Footer = () => {
                 <IconFacebook className="w-5 h-5" />
               </a>
               <a
-                href="https://www.instagram.com/acharya_professional_accounts?utm_source=ig_web_button_share_sheet&igsh=MTJhMXk5YzNxYnUxZQ=="
+                href={siteConfig.socialLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-dark-bg rounded-full flex items-center justify-center text-primary-accent hover:bg-primary-accent hover:text-dark-bg hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-accent/30 transition-all duration-300"
@@ -112,13 +114,13 @@ const Footer = () => {
             <ul className="space-y-3">
               {['accounting', 'taxation', 'auditing', 'gst', 'business consulting', 'advisory'].map((item, index) => (
                 <li key={index}>
-                  <a
-                    href={getLinkHref(item)}
+                  <Link
+                    to={getLinkHref(item)}
                     className="text-boulder hover:text-primary-accent transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <IconChevronRight className="w-3 h-3 text-primary-accent group-hover:translate-x-1 transition-transform duration-300" />
                     {item === 'gst' ? 'GST' : item.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -134,13 +136,13 @@ const Footer = () => {
             <ul className="space-y-3">
               {['home', 'about', 'services', 'courses', 'careers', 'calculator', 'contact', 'kozhikode'].map((item, index) => (
                 <li key={index}>
-                  <a
-                    href={getLinkHref(item)}
+                  <Link
+                    to={getLinkHref(item)}
                     className="text-boulder hover:text-primary-accent transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <IconChevronRight className="w-3 h-3 text-primary-accent group-hover:translate-x-1 transition-transform duration-300" />
                     {item === 'calculator' ? 'Tax Calculator' : item === 'kozhikode' ? 'CA in Kozhikode' : item.charAt(0).toUpperCase() + item.slice(1)}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -157,33 +159,38 @@ const Footer = () => {
               <li className="flex items-start gap-4">
                 <IconMapMarker className="w-5 h-5 text-primary-accent mt-1 flex-shrink-0" />
                 <span className="text-boulder">
-                  1st Floor Palace Arcade, Palace Road, Mankave, Kozhikode,
-                  Kerala 673007
+                  {siteConfig.address.street}, {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.pincode}
                 </span>
               </li>
 
               <li className="flex items-start gap-4">
                 <IconPhone className="w-5 h-5 text-primary-accent mt-1 flex-shrink-0" />
                 <span className="text-boulder">
-                  <a href="tel:+919562069434" className="hover:text-primary-accent transition-colors duration-300">+91 9562 06 9434</a><br />
-                  <a href="tel:+917025546914" className="hover:text-primary-accent transition-colors duration-300">+91 7025 54 6914</a><br />
-                  <a href="tel:+919072118877" className="hover:text-primary-accent transition-colors duration-300">+91 9072 11 8877</a>
+                  {siteConfig.phones.map((phone, idx) => (
+                    <React.Fragment key={idx}>
+                      <a href={`tel:${phone.value}`} className="hover:text-primary-accent transition-colors duration-300">{phone.display}</a>
+                      {idx < siteConfig.phones.length - 1 && <br />}
+                    </React.Fragment>
+                  ))}
                 </span>
               </li>
 
               <li className="flex items-start gap-4">
                 <IconEnvelope className="w-5 h-5 text-primary-accent mt-1 flex-shrink-0" />
                 <span className="text-boulder">
-                  <a href="mailto:acharya.apa@gmail.com" className="hover:text-primary-accent transition-colors duration-300">acharya.apa@gmail.com</a><br />
-                  <a href="mailto:apa@acharya-professional-accountants.in" className="hover:text-primary-accent transition-colors duration-300">apa@acharya-professional-accountants.in</a>
+                  {siteConfig.emails.map((email, idx) => (
+                    <React.Fragment key={idx}>
+                      <a href={`mailto:${email}`} className="hover:text-primary-accent transition-colors duration-300">{email}</a>
+                      {idx < siteConfig.emails.length - 1 && <br />}
+                    </React.Fragment>
+                  ))}
                 </span>
               </li>
 
               <li className="flex items-start gap-4">
                 <IconClock className="w-5 h-5 text-primary-accent mt-1 flex-shrink-0" />
                 <span className="text-boulder">
-                  Monday - Saturday:<br /> 9:00 AM - 6:00 PM<br />
-
+                  {siteConfig.businessHours}
                 </span>
               </li>
             </ul>
@@ -195,7 +202,7 @@ const Footer = () => {
       {/* Service Available Cities Section */}
       <div className="container mx-auto px-5 md:px-20 relative z-10 pb-10 border-t border-primary-accent/10 pt-10">
         <h3 className="text-xl font-semibold mb-6 text-primary-accent text-center relative pb-2 inline-block left-1/2 transform -translate-x-1/2">
-          Service Available City
+          Service Available Cities
           <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-accent"></span>
         </h3>
 
@@ -203,6 +210,7 @@ const Footer = () => {
           {locationGroups.flatMap(group => group.cities).map((city, index) => {
             let slug = city.trim().toLowerCase().replace(/\s+/g, '-');
             if (slug === 'bengaluru') slug = 'bangalore';
+            if (slug === 'mangalore') slug = 'mangaluru';
             return (
               <Link
                 key={index}
@@ -221,7 +229,7 @@ const Footer = () => {
       <div className="py-6 border-t border-primary-accent/10 text-center relative z-10">
         <div className="container mx-auto px-5">
           <p className="text-boulder text-sm">
-            &copy; 2025 Acharya Professional Accountants Pvt Ltd. All Rights Reserved. | Designed & Developed by <a href="https://www.sreenathdev.online/" target="_blank" className="text-primary-accent hover:underline flex items-center gap-1 inline-flex"><IconHeart className="w-3 h-3 text-primary-accent" /> Sreenath K K</a>
+            &copy; {currentYear} {siteConfig.legalName}. All Rights Reserved. | Designed & Developed by <a href="https://www.sreenathdev.online/" target="_blank" rel="noopener noreferrer" className="text-primary-accent hover:underline flex items-center gap-1 inline-flex"><IconHeart className="w-3 h-3 text-primary-accent" /> Sreenath K K</a>
           </p>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import SEO from '../common/SEO';
+import Breadcrumbs from '../common/Breadcrumbs';
 import DynamicFaIcon from '../common/FontAwesomeRegistry';
 
 const LoanSupportPage = () => {
@@ -13,20 +14,24 @@ const LoanSupportPage = () => {
     return (
         <main className="relative z-10 font-inter text-white bg-transparent pt-24 md:pt-28">
             <SEO
-                title="Business Loan Assistance & Project Reports | Acharya"
-                description="Get expert guidance on a business loan from Acharya Professional Accountants, covering eligibility, documentation, and approvals for seamless funding."
-                canonical="https://www.acharyaprofessionalaccountants.in/services/business-loans"
+                title="Business Loan & Project Report Support in Kerala | Acharya"
+                description="Expert business loan assistance and project report support in Kerala. CMA data, MSME loans, working capital & CGTMSE collateral-free loan documentation by Acharya."
+                canonical="https://acharyaprofessionalaccountants.in/services/business-loans"
             />
+            <div className="container mx-auto px-4 md:px-20 pt-4">
+                <Breadcrumbs />
+            </div>
+
             {/* Hero Section */}
             <section className="container mx-auto px-4 md:px-20 mb-12 md:mb-16 grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-8 items-center" data-aos="fade-up">
                 <div>
                     <p className="text-primary-accent uppercase tracking-[0.2em] text-sm mb-3">Services / Loan Support</p>
                     <h1 className="font-montserrat text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                        Business Loans & <br className="hidden md:block" />
-                        <span className="text-primary-accent">Project Report Support</span>
+                        Business Loan & <br className="hidden md:block" />
+                        <span className="text-primary-accent">Project Report Support in Kerala</span>
                     </h1>
                     <p className="text-lg text-boulder mb-8 max-w-2xl">
-                        Navigating the complex world of business financing can be challenging. From preliminary eligibility checks to final bank approval, Acharya Professional Accountants helps Startups, MSMEs, and established Professionals secure loans with proper documentation and bank-ready, expert-crafted project reports. Whether you need working capital or long-term expansion funds, we ensure your financial profile meets the highest banking standards.
+                        Navigating business financing requires meticulous documentation. From preliminary eligibility checks to bank-ready project reports, Acharya Professional Accountants helps Startups, MSMEs, and established enterprises prepare professional CMA data and loan applications meeting strict banking standards.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4">
@@ -56,8 +61,8 @@ const LoanSupportPage = () => {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/80 to-transparent"></div>
                         <div className="absolute bottom-4 left-4 right-4 bg-secondary-dark/90 backdrop-blur-sm p-4 rounded-xl border border-white/10">
-                            <p className="text-primary-accent font-bold text-sm mb-1"><DynamicFaIcon name="fa-check-circle" className="mr-2" />Approved by Top Banks</p>
-                            <p className="text-xs text-gray-300">We ensure your project report meets every compliance standard.</p>
+                            <p className="text-primary-accent font-bold text-sm mb-1"><DynamicFaIcon name="fa-check-circle" className="mr-2" />Bank-Compliant Project Reports</p>
+                            <p className="text-xs text-gray-300">We ensure your financial projections and CMA data meet compliance standards.</p>
                         </div>
                     </div>
 
@@ -72,20 +77,20 @@ const LoanSupportPage = () => {
                     <div className="text-center mb-12">
                         <h2 className="font-montserrat text-2xl md:text-4xl font-bold mb-4">Types of Business Loans We Support</h2>
                         <p className="text-boulder max-w-3xl mx-auto">
-                            Choosing the right credit facility is crucial for maintaining healthy cash flow and sustainable growth. We assist you in identifying and securing the optimal loan instrument based on your unique business profile, industry requirements, and long-term financial goals. Our extensive expertise covers a wide spectrum of commercial financing options.
+                            Choosing the right credit facility is crucial for maintaining healthy cash flow and sustainable growth. We assist you in identifying and securing the optimal loan instrument based on your unique business profile.
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
                             { title: 'MSME / Small Business', icon: 'fa-store', desc: 'For retail, trading, and small manufacturing units.', slug: 'msme-loans' },
-                            { title: 'Startup Loans', icon: 'fa-rocket', desc: 'Funding for new ventures with scalable business models.', slug: 'msme-loans' },
+                            { title: 'Startup Loans', icon: 'fa-rocket', desc: 'Funding for new ventures with scalable business models.', slug: 'startup-loans' },
                             { title: 'MUDRA Loans', icon: 'fa-hand-holding-usd', desc: 'Shishu, Kishore, and Tarun schemes for micro-units.', slug: 'mudra-loans' },
-                            { title: 'Working Capital', icon: 'fa-chart-line', desc: 'CC/OD limits to manage day-to-day operations.', slug: 'term-loans' },
+                            { title: 'Working Capital', icon: 'fa-chart-line', desc: 'CC/OD limits to manage day-to-day operations.', slug: 'working-capital' },
                             { title: 'Term Loans', icon: 'fa-clock', desc: 'Long-term funding for expansion and assets.', slug: 'term-loans' },
                             { title: 'Professional Loans', icon: 'fa-user-md', desc: 'For Doctors, CAs, Architects, and Consultants.', slug: 'private-bank-loans' },
                             { title: 'Machinery Loans', icon: 'fa-cogs', desc: 'Purchase of new equipment and technology.', slug: 'machinery-loans' },
-                            { title: 'Expansion Loans', icon: 'fa-expand-arrows-alt', desc: 'Scaling operations to new markets or verticals.', slug: 'unsecured-business-loans' },
+                            { title: 'Expansion Loans', icon: 'fa-expand-arrows-alt', desc: 'Scaling operations to new markets or verticals.', slug: 'expansion-loans' },
                         ].map((loan, index) => (
                             <Link
                                 to={`/services/business-loans/${loan.slug}`}
@@ -100,6 +105,7 @@ const LoanSupportPage = () => {
                             </Link>
                         ))}
                     </div>
+
 
                     <div className="mt-10 text-center">
                         <p className="text-gray-400 mb-4">Not sure which loan suits you?</p>

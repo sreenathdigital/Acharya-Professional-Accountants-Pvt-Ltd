@@ -3,9 +3,11 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { createServer as createViteServer } from 'vite';
 import { cityContent } from './src/data/locationData.js';
+import { generateSitemap } from './src/utils/sitemapGenerator.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, 'dist');
+const publicDir = path.join(__dirname, 'public');
 
 const routes = [
     '/',
@@ -23,10 +25,28 @@ const routes = [
     '/services/taxation/tax-planning',
     '/services/taxation/notice-responses',
     '/services/auditing',
+    '/services/auditing/tax-audit',
+    '/services/auditing/internal-audit',
     '/services/gst',
     '/services/business-consulting',
+    '/services/business-consulting/working-capital',
+    '/services/business-consulting/financial-feasibility',
+    '/services/business-consulting/profitability-analysis',
     '/services/advisory',
     '/services/business-loans',
+    '/services/business-loans/cma-data',
+    '/services/business-loans/project-report',
+    '/services/business-loans/dscr',
+    '/services/business-loans/cgtmse',
+    '/services/business-loans/mudra',
+    '/resources/nri-tax-hub',
+    '/resources/nri-taxation/rental-income',
+    '/resources/nri-taxation/tds-certificate',
+    '/resources/nri-taxation/capital-gains-property',
+    '/resources/tax-notices/notice-143-1',
+    '/resources/tax-notices/notice-148',
+    '/resources/tax-notices/gst-itc-mismatch',
+    '/resources/tax-notices/handloom-gst-kannur',
     '/courses',
     '/careers',
     '/contact',
@@ -148,6 +168,12 @@ async function prerender() {
         }
 
         console.log(`Successfully pre-rendered ${renderedCount}/${uniqueRoutes.length} static route HTML files.`);
+
+        // Generate dynamic XML sitemap for all routes
+        const sitemapXml = generateSitemap(uniqueRoutes);
+        fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapXml);
+        fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml);
+        console.log(`Generated sitemap.xml with ${uniqueRoutes.length} URLs in public/ and dist/.`);
     } finally {
         await vite.close();
     }
