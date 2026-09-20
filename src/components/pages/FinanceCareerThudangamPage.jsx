@@ -105,7 +105,7 @@ const FinanceCareerThudangamPage = () => {
             </span>
 
             <h1 className="font-montserrat text-3xl sm:text-5xl font-extrabold leading-tight mb-4 text-white">
-              4 Months of Training  <span className="text-[#e5a145]">into a Finance Caree</span>
+              4 Months of Training  <span className="text-[#e5a145]">into a Finance Career</span>
             </h1>
 
             <p className="text-base sm:text-lg text-gray-300 max-w-xl mb-7 leading-relaxed">
