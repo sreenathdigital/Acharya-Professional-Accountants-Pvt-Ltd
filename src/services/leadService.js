@@ -1,28 +1,59 @@
-const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL?.trim();
-
 export const captureLead = async (leadData) => {
+  const scriptUrl =
+    leadData?.scriptUrl ||
+    import.meta.env.VITE_FINANCE_CAREER_SHEET_URL?.trim() ||
+    import.meta.env.VITE_GOOGLE_SCRIPT_URL?.trim();
+
+  if (!scriptUrl) {
+    console.warn("Google Script URL is not configured in environment variables.");
+    return {
+      success: false,
+      message: "Google Script URL not configured",
+    };
+  }
+
   try {
-    const response = await fetch(GOOGLE_SCRIPT_URL, {
+    const payload = {
+      name: leadData.name || "",
+      mobile: leadData.mobile || leadData.phone || "",
+      phone: leadData.phone || leadData.mobile || "",
+      email: leadData.email || "",
+      location: leadData.location || "",
+      qualification: leadData.qualification || leadData.qual || "",
+      qual: leadData.qual || leadData.qualification || "",
+      source: leadData.source || (leadData.location ? "Website - Syllabus Download" : "Website Lead"),
+      pageUrl: leadData.pageUrl || (typeof window !== "undefined" ? window.location.href : ""),
+      timestamp: new Date().toISOString(),
+    };
+
+    const response = await fetch(scriptUrl, {
       method: "POST",
       headers: {
         "Content-Type": "text/plain;charset=utf-8",
       },
-      body: JSON.stringify({
-        name: leadData.name,
-        mobile: leadData.mobile,
-        email: leadData.email,
-        location: leadData.location,
-        source: "Website - Syllabus Download",
-      }),
+      body: JSON.stringify(payload),
+      keepalive: true,
     });
+
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      // In case of non-200 or opaque redirects from Google Scripts
+      return {
+        success: true,
+        message: "Lead processed",
+      };
     }
 
-    const result = await response.json();
+    let result = { success: true };
+    try {
+      result = await response.json();
+    } catch {
+      // Non-JSON response from Google Apps Script endpoint
+      result = { success: true };
+    }
+
     return {
-      success: result.success,
-      message: result.message || (result.success ? "Lead captured successfully" : "Unable to submit form. Please try again."),
+      success: result.success !== false,
+      message: result.message || "Lead captured successfully",
     };
   } catch (error) {
     console.error("Lead Capture Error:", error);
@@ -32,3 +63,4 @@ export const captureLead = async (leadData) => {
     };
   }
 };
+

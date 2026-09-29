@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import SEO from '../common/SEO';
+import { captureLead } from '../../services/leadService';
 
 const FinanceCareerThudangamPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [modalForm, setModalForm] = useState({ name: '', phone: '', qual: '' });
   const [quickForm, setQuickForm] = useState({ name: '', phone: '' });
+  const [isSubmittingModal, setIsSubmittingModal] = useState(false);
+  const [isSubmittingQuick, setIsSubmittingQuick] = useState(false);
 
   useEffect(() => {
     AOS.refresh();
@@ -35,18 +38,69 @@ const FinanceCareerThudangamPage = () => {
 
   const openWhatsApp = (name, phone, qual = 'Inquiry') => {
     const text = `Hi Acharya! I am interested in the *4-Month Finance Career Thudangam* program.%0A%0A*Name:* ${encodeURIComponent(name || 'N/A')}%0A*Phone:* ${encodeURIComponent(phone || 'N/A')}%0A*Status:* ${encodeURIComponent(qual)}`;
-    window.open(`https://wa.me/919562069434?text=${text}`, '_blank');
+    const url = `https://wa.me/919562069434?text=${text}`;
+    const win = window.open(url, '_blank');
+    if (!win || win.closed || typeof win.closed === 'undefined') {
+      window.location.href = url;
+    }
   };
 
-  const handleQuickSubmit = (e) => {
+  const handleQuickSubmit = async (e) => {
     e.preventDefault();
-    openWhatsApp(quickForm.name, quickForm.phone, 'Quick Enroll');
+    if (isSubmittingQuick) return;
+    setIsSubmittingQuick(true);
+
+    const name = quickForm.name.trim();
+    const phone = quickForm.phone.trim();
+
+    try {
+      // Save lead to Google Sheet (safety timeout ensures WhatsApp always opens)
+      await Promise.race([
+        captureLead({
+          name,
+          phone,
+          qual: 'Fast Track Inquiry',
+          source: 'Finance Career Thudangam - Fast Track Form',
+        }),
+        new Promise((resolve) => setTimeout(resolve, 2000)),
+      ]);
+    } catch (err) {
+      console.error('Lead submission error:', err);
+    } finally {
+      setIsSubmittingQuick(false);
+      openWhatsApp(name, phone, 'Fast Track Inquiry');
+      setQuickForm({ name: '', phone: '' });
+    }
   };
 
-  const handleModalSubmit = (e) => {
+  const handleModalSubmit = async (e) => {
     e.preventDefault();
-    openWhatsApp(modalForm.name, modalForm.phone, modalForm.qual);
-    closeModal();
+    if (isSubmittingModal) return;
+    setIsSubmittingModal(true);
+
+    const name = modalForm.name.trim();
+    const phone = modalForm.phone.trim();
+    const qual = modalForm.qual;
+
+    try {
+      // Save lead to Google Sheet
+      await Promise.race([
+        captureLead({
+          name,
+          phone,
+          qual,
+          source: 'Finance Career Thudangam - Modal Form',
+        }),
+        new Promise((resolve) => setTimeout(resolve, 2000)),
+      ]);
+    } catch (err) {
+      console.error('Lead submission error:', err);
+    } finally {
+      setIsSubmittingModal(false);
+      openWhatsApp(name, phone, qual);
+      closeModal();
+      setModalForm({ name: '', phone: '', qual: '' });
+    }
   };
 
   return (
@@ -198,9 +252,20 @@ const FinanceCareerThudangamPage = () => {
                   />
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#e5a145] to-[#8e400e] text-white font-montserrat font-bold text-xs py-2.5 rounded-lg transition-all"
+                    disabled={isSubmittingQuick}
+                    className="w-full bg-gradient-to-r from-[#e5a145] to-[#8e400e] text-white font-montserrat font-bold text-xs py-2.5 rounded-lg transition-all disabled:opacity-60 flex items-center justify-center gap-2"
                   >
-                    Submit &amp; Get Counseling
+                    {isSubmittingQuick ? (
+                      <>
+                        <svg className="animate-spin h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                        </svg>
+                        <span>Connecting...</span>
+                      </>
+                    ) : (
+                      'Submit & Get Counseling'
+                    )}
                   </button>
                 </form>
               </div>
@@ -423,9 +488,20 @@ const FinanceCareerThudangamPage = () => {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#e5a145] to-[#8e400e] text-white font-montserrat font-bold text-base py-3 rounded-lg transition-all hover:opacity-95 mt-2"
+                disabled={isSubmittingModal}
+                className="w-full bg-gradient-to-r from-[#e5a145] to-[#8e400e] text-white font-montserrat font-bold text-base py-3 rounded-lg transition-all hover:opacity-95 mt-2 disabled:opacity-60 flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20"
               >
-                Confirm &amp; Chat on WhatsApp
+                {isSubmittingModal ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                    </svg>
+                    <span>Saving &amp; Opening WhatsApp...</span>
+                  </>
+                ) : (
+                  'Confirm & Chat on WhatsApp'
+                )}
               </button>
             </form>
           </div>
