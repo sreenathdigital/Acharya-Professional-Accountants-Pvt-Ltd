@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import SEO from '../common/SEO';
 import DynamicFaIcon from '../common/FontAwesomeRegistry';
@@ -63,6 +64,15 @@ const InternshipPage = () => {
                         <p className="text-boulder text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
                             Acharya Professional Accountants is proud to have successfully guided and trained more than 1,800+ students through their FYUGP (Four-Year Undergraduate Programme) Internship during the academic year 2025–26.
                         </p>
+                        <div className="mt-5">
+                            <Link
+                                to="/fyugp-internship"
+                                className="inline-flex items-center gap-2 bg-primary-accent text-dark-bg font-bold px-6 py-2.5 rounded-full hover:bg-korma hover:text-white transition-all text-sm shadow-md"
+                            >
+                                <span>Explore Dedicated FYUGP Internship Details</span>
+                                <DynamicFaIcon name="fa-arrow-right" className="text-xs" />
+                            </Link>
+                        </div>
                     </div>
 
                     <div className="mb-12">

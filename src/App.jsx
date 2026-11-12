@@ -34,6 +34,7 @@ import CoursesPage from './components/pages/CoursesPage';
 
 import CareersPage from './components/pages/CareersPage';
 import InternshipPage from './components/pages/InternshipPage';
+import FyugpInternshipPage from './components/pages/FyugpInternshipPage';
 import ContactPage from './components/pages/ContactPage';
 import TaxCalculatorPage from './components/pages/TaxCalculatorPage';
 import FinanceCareerThudangamPage from './components/pages/FinanceCareerThudangamPage';
@@ -201,6 +202,10 @@ export function AppContent() {
             <Route path="/courses/c-pat" element={<Navigate to="/courses" replace />} />
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/Internship" element={<InternshipPage />} />
+            <Route path="/internship" element={<InternshipPage />} />
+            <Route path="/fyugp-internship" element={<FyugpInternshipPage />} />
+            <Route path="/internship/fyugp" element={<FyugpInternshipPage />} />
+            <Route path="/fyugp-internship-kozhikode" element={<FyugpInternshipPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/calculator" element={<TaxCalculatorPage />} />
             <Route path="/finance-career-thudangam" element={<FinanceCareerThudangamPage />} />

@@ -51,6 +51,9 @@ const routes = [
     '/careers',
     '/contact',
     '/calculator',
+    '/Internship',
+    '/internship',
+    '/fyugp-internship',
     '/finance-career-thudangam',
     '/thudangam',
 ];

@@ -9,6 +9,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesHovered, setIsServicesHovered] = useState(false);
   const [isLoansHovered, setIsLoansHovered] = useState(false);
+  const [isInternshipHovered, setIsInternshipHovered] = useState(false);
+  const [isMobileInternshipOpen, setIsMobileInternshipOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -64,7 +66,7 @@ const Header = () => {
       case 'income tax calculator':
         return path === '/calculator';
       case 'internship':
-        return path === '/Internship';
+        return path.toLowerCase().includes('internship') || path === '/Internship' || path === '/fyugp-internship';
       case 'courses':
         return path.startsWith('/courses');
       case 'careers':
@@ -84,7 +86,7 @@ const Header = () => {
     return `${baseClasses} ${isActive(item) ? activeClasses : inactiveClasses}`;
   };
 
-  const renderLink = (item) => {
+  const renderLink = (item, isMobile = false) => {
     if (item === 'income tax calculator') {
       return (
         <RouterLink
@@ -98,14 +100,118 @@ const Header = () => {
     }
 
     if (item === 'internship') {
+      if (isMobile) {
+        return (
+          <div className="w-full flex flex-col items-center">
+            <button
+              type="button"
+              onClick={() => setIsMobileInternshipOpen(!isMobileInternshipOpen)}
+              className={`${getLinkClasses(item)} flex items-center justify-center gap-1.5 py-1 w-full`}
+            >
+              <span>{item}</span>
+              <IconChevronDown
+                className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                  isMobileInternshipOpen ? 'rotate-180 text-primary-accent' : ''
+                }`}
+              />
+            </button>
+            {isMobileInternshipOpen && (
+              <div className="w-full mt-2 py-2 px-3 bg-secondary-dark/90 rounded-xl border border-primary-accent/20 flex flex-col gap-2">
+                <RouterLink
+                  to="/Internship"
+                  className={`block py-2 text-sm text-center rounded-lg transition-colors ${
+                    location.pathname === '/Internship' || location.pathname === '/internship'
+                      ? 'text-primary-accent font-semibold bg-white/5'
+                      : 'text-boulder hover:text-white'
+                  }`}
+                  onClick={() => {
+                    setIsMobileInternshipOpen(false);
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  Accounting &amp; Finance Internship
+                </RouterLink>
+                <RouterLink
+                  to="/fyugp-internship"
+                  className={`block py-2 text-sm text-center rounded-lg transition-colors ${
+                    location.pathname === '/fyugp-internship' || location.pathname === '/internship/fyugp'
+                      ? 'text-primary-accent font-semibold bg-white/5'
+                      : 'text-boulder hover:text-white'
+                  }`}
+                  onClick={() => {
+                    setIsMobileInternshipOpen(false);
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  FYUGP Internship (Auditing &amp; Taxation)
+                </RouterLink>
+              </div>
+            )}
+          </div>
+        );
+      }
+
       return (
-        <RouterLink
-          to="/Internship"
-          className={getLinkClasses(item)}
-          onClick={() => setIsMenuOpen(false)}
+        <div
+          className="relative h-full flex items-center"
+          onMouseEnter={() => setIsInternshipHovered(true)}
+          onMouseLeave={() => setIsInternshipHovered(false)}
         >
-          {item}
-        </RouterLink>
+          <RouterLink
+            to="/Internship"
+            className={getLinkClasses(item)}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {item} <IconChevronDown className={`w-3 h-3 ml-1 transition-transform duration-300 inline-block ${isInternshipHovered ? 'rotate-180' : ''}`} />
+          </RouterLink>
+
+          {/* Internship Dropdown */}
+          <div
+            className={`absolute top-full left-0 w-72 bg-secondary-dark/95 backdrop-blur-xl border border-primary-accent/20 shadow-2xl transition-all duration-300 transform origin-top rounded-b-xl z-50 ${
+              isInternshipHovered ? 'opacity-100 scale-y-100 visible' : 'opacity-0 scale-y-0 invisible'
+            }`}
+          >
+            <ul className="py-2">
+              <li>
+                <RouterLink
+                  to="/Internship"
+                  className={`block px-4 py-3 text-sm transition-colors border-b border-white/5 ${
+                    location.pathname === '/Internship' || location.pathname === '/internship'
+                      ? 'text-primary-accent font-semibold bg-white/5'
+                      : 'text-boulder hover:text-white hover:bg-white/5'
+                  }`}
+                  onClick={() => {
+                    setIsInternshipHovered(false);
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  <div className="font-medium text-white">Accounting &amp; Finance Internship</div>
+                  <div className="text-xs text-boulder mt-0.5">Degree, PG, CMA &amp; ACCA practical training</div>
+                </RouterLink>
+              </li>
+              <li>
+                <RouterLink
+                  to="/fyugp-internship"
+                  className={`block px-4 py-3 text-sm transition-colors ${
+                    location.pathname === '/fyugp-internship' || location.pathname === '/internship/fyugp'
+                      ? 'text-primary-accent font-semibold bg-white/5'
+                      : 'text-boulder hover:text-white hover:bg-white/5'
+                  }`}
+                  onClick={() => {
+                    setIsInternshipHovered(false);
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  <div className="font-medium text-white flex items-center justify-between">
+                    <span>FYUGP Internship</span>
+                    <span className="text-[10px] bg-primary-accent text-dark-bg px-1.5 py-0.5 rounded font-bold uppercase">Popular</span>
+                  </div>
+                  <div className="text-xs text-boulder mt-0.5">Auditing &amp; Taxation · In-Office Kozhikode</div>
+                </RouterLink>
+              </li>
+            </ul>
+          </div>
+        </div>
       );
     }
     if (item === 'about') {
@@ -345,20 +451,20 @@ const Header = () => {
 
           {/* Mobile Menu */}
           <div
-            className={`fixed inset-0 bg-dark-bg z-40 flex flex-col justify-center items-center pt-24 pb-10 transition-all duration-300 xl:hidden ${isMenuOpen ? 'translate-y-0' : '-translate-y-full opacity-0 pointer-events-none'
+            className={`fixed inset-0 bg-dark-bg z-40 flex flex-col justify-start items-center pt-24 pb-12 transition-all duration-300 xl:hidden overflow-y-auto ${isMenuOpen ? 'translate-y-0' : '-translate-y-full opacity-0 pointer-events-none'
               }`}
             style={{
               top: isScrolled ? '80px' : '64px',
               height: isScrolled ? 'calc(100vh - 80px)' : 'calc(100vh - 64px)'
             }}
           >
-            <ul className="flex flex-col items-center gap-6 w-full px-4">
+            <ul className="flex flex-col items-center gap-6 w-full px-4 pb-12">
               {['home', 'about', 'services', 'business loans', 'income tax calculator', 'internship', 'courses', 'careers'].map((item) => (
                 <li key={item} className="w-full text-center">
-                  {renderLink(item)}
+                  {renderLink(item, true)}
                 </li>
               ))}
-              <li className="w-full text-center">
+              <li className="w-full text-center pt-2">
                 <RouterLink
                   to="/contact"
                   className="bg-primary-accent text-dark-bg px-6 py-3 rounded-full font-semibold hover:bg-korma hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary-accent/30 transition-all duration-300 inline-flex items-center gap-2 group"

@@ -38,6 +38,8 @@ const Footer = () => {
       careers: '/careers',
       contact: '/contact',
       calculator: '/calculator',
+      internship: '/Internship',
+      'fyugp internship': '/fyugp-internship',
 
       accounting: '/services/accounting',
       auditing: '/services/auditing',
@@ -134,14 +136,20 @@ const Footer = () => {
             </h3>
 
             <ul className="space-y-3">
-              {['home', 'about', 'services', 'courses', 'careers', 'calculator', 'contact', 'kozhikode'].map((item, index) => (
+              {['home', 'about', 'services', 'courses', 'internship', 'fyugp internship', 'careers', 'calculator', 'contact'].map((item, index) => (
                 <li key={index}>
                   <Link
                     to={getLinkHref(item)}
                     className="text-boulder hover:text-primary-accent transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <IconChevronRight className="w-3 h-3 text-primary-accent group-hover:translate-x-1 transition-transform duration-300" />
-                    {item === 'calculator' ? 'Tax Calculator' : item === 'kozhikode' ? 'CA in Kozhikode' : item.charAt(0).toUpperCase() + item.slice(1)}
+                    {item === 'calculator'
+                      ? 'Tax Calculator'
+                      : item === 'fyugp internship'
+                      ? 'FYUGP Internship'
+                      : item === 'internship'
+                      ? 'Internship'
+                      : item.charAt(0).toUpperCase() + item.slice(1)}
                   </Link>
                 </li>
               ))}
